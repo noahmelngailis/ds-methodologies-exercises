@@ -9,7 +9,7 @@ X = df[['monthly_charges', 'tenure']]
 y = df[['total_charges']]
 train_pct = .8
 
-def split_my_data(X, y, train_pct):
+def split_my_data(X=X, y=y, train_pct=train_pct):
     X_train, X_test, y_train, y_test = train_test_split(X, y , train_size = train_pct, random_state = 1)
     return X_train, X_test, y_train, y_test
 
