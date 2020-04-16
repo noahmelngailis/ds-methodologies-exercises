@@ -38,3 +38,4 @@ def prep_iris(df):
     train, test = sklearn.model_selection.train_test_split(df, random_state=123, train_size = .8)
     train, test = encode_species(train, test)
     return train, test
+
