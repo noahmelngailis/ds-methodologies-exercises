@@ -68,8 +68,8 @@ def encode_embark_town(train, test):
 def impute_age(train, test):
     imputer = sklearn.impute.SimpleImputer(strategy='mean')
     imputer.fit(train[['age']])
-    train.age = imputer.transform(train[['age']])
-    test.age = imputer.transform(test[['age']])
+    train['age'] = imputer.transform(train[['age']])
+    test['age'] = imputer.transform(test[['age']])
     return train, test
 
 def scale_columns(train, test):
@@ -84,6 +84,10 @@ def prep_titanic(df):
     train, test = impute_embark_town(train, test)
     encoder, train, test = encode_embark_town(train, test)
     train, test = impute_age(train, test)
+    train['age_not_scaled'] = train.age
+    train['fare_not_scaled'] = train.fare
+    test['age_not_scaled'] = test.age
+    test['fare_not_scaled'] = test.fare
     scaler, train, test = scale_columns(train, test)
     return scaler, encoder, train, test
 
