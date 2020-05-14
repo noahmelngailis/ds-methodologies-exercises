@@ -55,7 +55,7 @@ def prep_heb_data(df):
     numeric_hists(df, bins=20)
     return df
 
-    def prep_german_energy(df):
+def prep_german_energy(df):
     """function 1. sets date column to date time, sets index to date,
     returns new columns of month and year"""
     df['Date'] = pd.to_datetime(df['Date'])
